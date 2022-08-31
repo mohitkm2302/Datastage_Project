@@ -1,0 +1,34 @@
+1. what kind of activity does datastage do?
+
+2. which version of datastage ? 
+- 11.5
+
+3. which all pieces of s/w are you aware of in datastage?
+- ds client, server
+
+4. diff types of jobs in Datastage? 
+- 5 ( server, parallel, mainframe, containers, job sequence)
+
+5. what makes parallel extender jobs diff & advantageous from server jobs?
+-
+sj - single node env. based processing | handle less data processing | lower performance
+pj - large data process | multi node env. | parallelism
+
+6. what is the process to have a table as a source or a target?
+
+7. how did you define the attributes to a source/target table?
+- schema
+
+8. datastage archietecture 11.5.
+
+-----------------------------------------------------------------------------------------------
+
+9. filter ( where, output link, reject)
+
+10. switch component 
+
+11. use of transformer in diff scenarios
+
+12. diff properties of src and trg as sequential files
+
+13. 

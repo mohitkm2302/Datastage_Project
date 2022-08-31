@@ -1,0 +1,124 @@
+1. write a code to connect a python code to database
+=> 
+a) 
+using "pyodbc" library
+pip install pyodbc
+
+import pyodbc
+conn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
+                      "Server=SURESH;"
+                      "Database=SQL Tutorial;"
+                      "Trusted_Connection=yes;")
+
+cursor = conn.cursor()
+cursor.execute('SELECT * FROM Employ')
+
+for row in cursor:
+    print('row = %r' % (row,))
+
+b) 
+#!/usr/bin/python
+import MySQLdb
+
+db = MySQLdb.connect(host="localhost",    # your host, usually localhost
+                     user="john",         # your username
+                     passwd="megajonhy",  # your password
+                     db="jonhydb")        # name of the data base
+
+# you must create a Cursor object. It will let
+#  you execute all the queries you need
+cur = db.cursor()
+
+# Use all the SQL you like
+cur.execute("SELECT * FROM YOUR_TABLE_NAME")
+
+# print all the first cell of all the rows
+for row in cur.fetchall():
+    print row[0]
+
+db.close()
+
+2. write a code to retutn the max number of times a character gets repeted consicutively in a string
+        ex---- string=aabbbccccddddd output=5
+=>
+
+3. given a dataset in xlsv perform these steps:
+       1.remove dublicate rows
+	=> 
+import pandas as pd
+data = pd.read_excel('C:\Temp\data.xlsx')
+print(data)
+
+# DataFrame.drop_duplicates(subset=None, keep=’first’, inplace=False)
+subset = [list of cols]
+keep = first, last
+inplace = T/F
+
+data.drop_duplicates()
+data.sort_values('Age',ascending=False)
+
+       2.make a column full_name by using first_name and last_name
+	=>
+df['full_name']=df['First Name'] +' ' + df['Middle Name'] + ' ' + df['Last Name']
+
+df['full_name'] = df[['First Name','Middle Name', 'Last Name']].apply(lambda x: ' '.join(x), axis=1)
+
+# in case of split name
+
+df['Full_Name'].str.split(expand=True)
+
+df['Full_Name'].str.extract(r'(?P<First_Name>\w+) (?P<Last_Name>\w+)', expand=True)
+
+       3. save it to another file name user
+	=> https://www.geeksforgeeks.org/how-to-save-file-with-file-name-from-user-using-python/
+
+f = open("demofile2.txt", "a")
+f.write("Now the file has more content!")
+f.close()
+
+#open and read the file after the appending:
+f = open("demofile2.txt", "r")
+print(f.read())
+
+# To create a file
+pathlib.Path(filepath).touch()
+
+# copies source file to a new destination file
+shutil.copyfile(src, dest)
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1. write a sql query to return a table that will show all the elements that are getting repeted consecutively more than 3 times.
+=> 
+
+SELECT *, COUNT(*) as cnt
+FROM emp
+GROUP BY eid
+HAVING cnt >= 3
+
+
+WITH T AS
+(
+SELECT *, 
+COUNT(*) OVER (PARTITION BY eid ) as Cnt
+FROM emp
+)
+SELECT ename
+FROM T
+WHERE Cnt >= 3
+
+2.  2.write a sql query to (physics marks,chemistry mark,math mark)columns into rows.
+=> https://www.plus2net.com/sql_tutorial/sql_sum-multiple.php
+
+3. 1 more questions related to joins came in which tables were given and we had to apply join twice in the table.
+=> SELF JOIN
+
+
+
+
+
+
+
+
+

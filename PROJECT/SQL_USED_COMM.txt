@@ -1,0 +1,194 @@
+create table emp_trgp as select * from emp where 1 = 2 ;
+
+select * from emp_sec2;
+
+create table emp_sec2 as select empno, ename, sal, deptno from emp where 1 = 2 ;
+
+select * from emp_sec2;
+
+create table emp_filter as select * from emp where 1 = 2 ;
+
+select * from emp_filter ;
+
+create table emp_filter1 as select * from emp where 1 = 2 ;
+
+select * from emp_filter1 ;
+
+
+create table emp_reg as select * from emp where 1 = 2 ;
+
+select * from emp_reg ;
+
+
+create table trg1 as select * from emp where 1 = 2 ;
+create table trg2 as select * from emp where 1 = 2 ;
+create table trg3 as select * from emp where 1 = 2 ;
+
+select * from trg1 ;
+select * from trg2 ;
+select * from trg3 ;
+
+create table emp_trg1 as select empno, ename, sal, deptno from emp where 1 = 2 ;
+create table emp_trg2 as select empno, ename, sal, deptno from emp where 1 = 2 ;
+create table emp_trg3 as select empno, ename, sal, deptno from emp where 1 = 2 ;
+
+select * from emp_trg1 ;
+select * from emp_trg2 ;
+select * from emp_trg3 ;
+
+create table emp_expr as select empno, ename, sal, comm, deptno, sal as tax, sal as total_sal, sal as  net_sal from emp where 1 = 2 ;
+
+select * from emp_expr ;
+
+drop table emp_expr;
+
+select * from trg1 ;
+select * from trg2 ;
+select * from trg3 ;
+
+-- #######################################
+select * from emp;
+create table emp_fil as select EMPNO,ENAME,SAL,DEPTNO,JOB from emp where 1=0;
+select * from emp_fil ;
+
+create table emp_fil2 as select  EMPNO,ENAME,SAL from emp where 1=0;
+select * from emp_fil2 ;
+
+create table emp_fil31 as select EMPNO,ENAME,DEPTNO,SAL from emp where 1=0;
+select * from emp_fil31 ;
+
+create table emp_fil32 as select EMPNO,ENAME,DEPTNO,SAL from emp where 1=0;
+select * from emp_fil32 ;
+
+create table emp_fil4 as select EMPNO,ENAME,SAL,SAL as TAX,JOB,DEPTNO from emp where 1=0;
+select * from emp_fil4 ;
+
+create table emp_fil5 as select EMPNO,ENAME,SAL,COMM,SAL as TSAL,SAL as TAX,SAL as NETSAL from emp where 1=0;
+select * from emp_fil5 ;
+
+create table emp_fil6 as select EMPNO,ENAME,SAL,SAL as TAX,DEPTNO from emp where 1=0;
+select * from emp_fil6 ;
+
+create table emp_fil8 as select EMPNO,ENAME,SAL,DEPTNO from emp where 1=0;
+select * from emp_fil8 ;
+
+drop table emp_fil8 ;
+
+-- TSAL = SAL + COMM
+create table emp_fil11 as select EMPNO, ENAME, SAL, COMM, SAL AS TSAL, DEPTNO from emp where 1=0;
+select * from emp_fil11;
+
+
+create table emp_fil_113 as select DEPTNO,JOB,COMM from emp where 1=0;
+select * from emp_fil_113 ;
+
+-- ###############################################################################
+
+select * from emp ;
+
+
+create table dept_21 as select EMPNO,ENAME,SAL,COMM,SAL AS TSAL,DEPTNO,ENAME AS DNAME from emp where 1=0;
+select * from dept_21 ;
+
+
+create table dept_23 as select EMPNO,ENAME,SAL,COMM,SAL AS TSAL,DEPTNO,SAL AS TRATE, JOB from emp where 1=0;
+select * from dept_23 ;
+
+create table dept_23s as select EMPNO,ENAME,SAL,COMM,SAL AS TSAL,DEPTNO,SAL AS TRATE, JOB from emp where 1=0;
+select * from dept_23s ;
+
+create table dept_24 as select EMPNO,ENAME,SAL,COMM,DEPTNO from emp where 1=0;
+select * from dept_24 ;
+
+create table dept_24s as select EMPNO,ENAME,SAL,COMM,DEPTNO from emp where 1=0;
+select * from dept_24s ;
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------
+
+create table emp_dept as select EMPNO, ENAME, SAL, DEPTNO, ENAME AS DNAME, ENAME AS LOC FROM emp where 1=0;
+
+select * from emp_dept ;
+
+create table emp_d10 as select * from emp where deptno = 10;
+create table emp_d20 as select * from emp where deptno = 20;
+create table emp_d30 as select * from emp where deptno = 30;
+
+create table emp_union as select * from emp where 1=2;
+
+insert into emp_d10 select * from emp_d20;
+insert into emp_d20 select * from emp_d30;
+insert into emp_d30 select * from emp_d10;
+commit;
+
+select * from emp  ;
+
+-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+create table emp_cdc as select empno, ename, sal, deptno from emp where 1 = 2;
+
+alter table emp_cdc add primary key(empno);
+select * from emp_cdc ;
+
+
+
+insert into emp(empno,ename,sal,deptno) values (1003,'Gayaz',3000,30);
+insert into emp(empno,ename,sal,deptno) values (1004,'Krishna',4000,10);
+commit;
+
+update emp set sal=sal+100 where empno in (7369,7788,7934);
+commit;
+
+select empno,sal from emp where empno in (7369,7788,7934);
+
+create table emp_para as select * from emp where 1=2;
+select * from emp_para; 
+
+create table emp_dept_join2 as select EMPNO, ENAME, SAL, DEPTNO,JOB, COMM, MGR,HIREDATE, ENAME AS DNAME, ENAME AS LOC FROM emp where 1=0;
+
+select * from emp_dept_join2 ;
+
+select * from emp_with20 ;
+select * from emp_useC_10 ;
+select * from emp_useC_20 ;
+
+-- #####################################################################
+
+create table emp_seq1 as select * from emp where 1=2;
+select * from emp_seq1 ; 
+
+truncate table emp_seq1 ;
+
+select count(*) from emp where DEPTNO=10 or DEPTNO=20; 
+
+-------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+select * from emp ;
+
+delete from emp where EMPNO IN (1003, 1004) ;
+
+
+commit; 
+
+
+-- ###########################################################################
+
+select * from JOB4_TRG1 ;
+
+select * from JOB4_TRG2 ;
+
+select * from emp where deptno = 10;
+
+
+
+
+

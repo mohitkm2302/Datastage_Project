@@ -1,0 +1,34 @@
+ravna
+ravna
+
+
+id - 123.176.39.179:61067
+
+
+----------------------------
+
+lab setub for datastage
+
+1. source system
+
+		a. rdbms - oracle 
+		un: scott
+		password: tiger
+		hostname: orcl
+
+	b. flat files: c:\username\src
+
+	c. datasets: c:\username\ds\src
+
+2. targetsystem
+
+	a. rdbms - oracle 
+		un: scott
+		password: tiger
+		hostname: orcl
+
+	b. flat files: c:\username\trg
+
+	c. datasets: c:\username\ds\trg
+
+

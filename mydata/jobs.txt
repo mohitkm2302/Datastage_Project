@@ -1,0 +1,38 @@
+1. 	src- dept table, trg - dept_trg ( same structure )
+
+	src -> trg with data
+
+2. 	src- salgrade table, trg - salgrade _trg ( same structure )
+
+	src -> trg with data
+
+3. 	src- bonus table, trg - bonus_trg ( same structure )
+
+	src -> trg with data
+
+4.	use of transformer ( reduce col in o/p )
+	
+	emp - emp_sec 
+
+5.	use of transformer ( reduce col in o/p )
+	
+	dept - dept_sec ( loc, deptno )
+
+6.	use of transformer ( reduce col in o/p )
+	
+	emp - emp_sec ( empno, sal, job, mgr)
+
+--------------------------------------------------------
+
+25-08-2022
+
+ src & trg flat files/sequential files
+
+1. types of files - delimited/fixed width
+
+2. loc - ds server/shared drive/ftp
+
+3. data writting to trg - overwritten/append
+
+4. col header - src/trg files may or maynot have col header
+
